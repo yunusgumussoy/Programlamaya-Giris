@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main(void)
+{
+    setlocale(LC_ALL   , "Turkish");
+    int bus[5]={0,0,0,0,0},eko[5]={0,0,0,0,0};   
+    int secim=1,i,sayac=0;
+    char c;
+    printf("\t *** Uçak bileti rezervasyon sistemine hoþ geldiniz! ***\n");
+  
+  do{
+    c="";
+    secim=1;
+    sayac=0;
+    
+    printf("\nBileti hangi Class'tan almak istersiniz?  \n");
+    printf("-- 1) BUSINESS CLASS --\n");
+    printf("-- 2) ECONOMY CLASS --\n");
+  do{
+         if(secim<1 || secim >2){
+      printf("Yanlis Secim Yaptiniz. 1 ya da 2 deðerini giriniz!!!!\n");
+      printf("-- 1) BUSINESS CLASS --\n");
+      printf("-- 2) ECONOMY CLASS --\n");
+        }
+    scanf("%d",&secim);
+    }while(secim<1 || secim>2);
+        if(secim==1){
+        for(i=0;i<5;i++){
+              if(bus[i]==0){
+                    sayac++;  break;
+                }
+          }
+                                                     
+            if(sayac==0){
+            printf("BUSINESS Class'ta boþ yer yok ECONOMY sinifindan almak ister misiniz? (E/H)\n");
+            puts("");
+            c=getch();
+            }
+            else{
+              bus[i]=1;
+                printf("BUSINESS Class'tan %d Numaralý Biletiniz Alinmistir\n",i+1);
+                printf("Baska islem yapmak istiyor musunuz? (E/H)\n");
+                c=getch();              
+            }   
+        }                                                                   
+        else if(secim==2){                                 
+          for(i=0;i<5;i++){
+                if(eko[i]==0){
+                    sayac++;  break;
+                }
+                                                     
+          }
+          if(sayac==0){
+                printf("ECONOMY CLASS'ýnda boþ yer yok BUSINESS sinifindan almak ister misiniz? (E/H)");
+                puts("");
+        c=getch();                                                                 
+            }
+            else{
+              eko[i]=1;
+                printf("ECONOMY CLASS'tan %d Numaralý Biletiniz Alinmistir\n",i+1);
+                printf("Baska islem yapmak istiyor musunuz? (E/H)\n");
+                c=getch();
+            }                            
+        }   
+}while(c=='e' || c=='E');
+  int sayacbus=0;
+    int sayaceko=0;
+    for(i=0;i<5;i++){
+      if(bus[i]==1){
+          sayacbus++;
+        }
+        if(eko[i]==1){
+            sayaceko++;
+    }
+    }
+    
+puts("");
+printf("ALINAN BÝLETLERÝN LÝSTESÝ:\n");
+  //BUSINESS SINIFI ICIN LISTELEME
+  if (sayacbus==1){
+    printf("BUSINESS Class'ýndan 1 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayacbus==2){
+    printf("BUSINESS Class'ýndan 1 ve 2 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayacbus==3){
+    printf("BUSINESS Class'ýndan 1, 2 ve 3 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayacbus==4){
+    printf("BUSINESS Class'ýndan 1,2,3 ve 4 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayacbus==5){
+    printf("BUSINESS Class'ýndan butun koltuklar alinmistir.\n");
+  }
+  //ECONOMY SINIFI ICIN LISTELEME
+    if (sayaceko==1){
+    printf("ECONOMY Class'ýndan 1 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayaceko==2){
+    printf("ECONOMY Class'ýndan 1 ve 2 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayaceko==3){
+    printf("ECONOMY Class'ýndan 1, 2 ve 3 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayaceko==4){
+    printf("ECONOMY Class'ýndan 1,2,3 ve 4 Numaralý koltuk alinmistir.\n");
+  }
+  else if(sayaceko==5){
+    printf("ECONOMY Class'ýndan butun koltuklar alinmistir.\n");
+  }
+  
+  printf("\n\n\n  ***Ýyi Uçuþlar Dileriz... *** ");
+}
